@@ -29,7 +29,7 @@ static bool isAtEnd()
 }
 static char advance()
 {
-    return scanner.current++;
+    return *scanner.current++;
 }
 static char peek()
 {

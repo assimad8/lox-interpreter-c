@@ -16,7 +16,7 @@ void compile(const char* source)
             printf("%4d ",token.line);
             line = token.line;
         }else{
-            pritnf("    | ");
+            printf("    | ");
         }
         printf("%2d '%.*s'\n",token.line,token.length,token.start);
         if(token.type==TOKEN_EOF) break;
