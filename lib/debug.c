@@ -16,21 +16,31 @@ void disassembleChunk(Chunk* chunk, const char* name) {
 }
 
 int disassembleInstruction(Chunk* chunk, int offset) {
-    // Print bytecode offset (leftmost column)
     printf("%04d  ", offset);
 
-    // Print line info or |
-    if (offset > 0 && chunk->lines[offset] == chunk->lines[offset - 1])
-        printf("    | "); // repeated line
-    else
-        printf("%4d ", chunk->lines[offset]); // new line
+    if (offset > 0 && chunk->lines[offset] == chunk->lines[offset - 1]) {
+        printf("    | ");
+    } else {
+        printf("%4d ", chunk->lines[offset]);
+    }
 
     uint8_t instruction = chunk->code[offset];
+
     switch (instruction) {
-        case OP_CONSTANT:
-            return constantInstruction("OP_CONSTANT", chunk, offset);
-        case OP_RETURN:
-            return simpleInstruction("OP_RETURN", offset);
+        case OP_CONSTANT: {
+            uint8_t constantIndex = chunk->code[offset + 1];
+            printf("%-16s %4d '", "OP_CONSTANT", constantIndex);
+            printValue(chunk->constants.values[constantIndex]);
+            printf("'\n");
+            return offset + 2;
+        }
+        case OP_NEGATE:{
+            return simpleInstruction("OP_NEGATE",offset);
+        }
+        case OP_RETURN:{
+            printf("OP_RETURN\n");
+            return offset + 1;
+        }
         default:
             printf("Unknown opcode %d\n", instruction);
             return offset + 1;
@@ -52,4 +62,5 @@ static int constantInstruction(const char* name, Chunk* chunk, int offset) {
     printf("'\n");
 
     return offset + 2;
+
 }
