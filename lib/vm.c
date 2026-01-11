@@ -42,8 +42,8 @@ static InterpretResult run()
         }
     }
 
-    #undef READ_BYTE()
-    #undef READ_CONSTANT()
+    #undef READ_BYTE
+    #undef READ_CONSTANT
 };
 
 InterpretResult interpret(Chunk *chunk)
