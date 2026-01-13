@@ -5,6 +5,10 @@
 #include "compiler.h"
 #include "scanner.h"
 
+#ifdef DEBUG_PRINT_CODE
+#include "debug.h"
+#endif //DEBUG_PRINT_CODE
+
 typedef struct {
     Token previous;
     Token current;
@@ -118,6 +122,12 @@ static void emitConstant(Value value)
 }
 static void endCompiler()
 {
+#ifdef DEBUG_PRINT_CODE
+    if(!parser.hadError)
+    {
+        disassembleChunk(currentChunk(),"Code");
+    }
+#endif //DEBUG_PRINT_CODE
     emitReturn();
 }
 
@@ -258,4 +268,4 @@ bool compile(const char* source,Chunk* chunk)
     return !parser.hadError;
 }
 
-// A pratt parser 17.6
+// Dumping chunks 17.7
