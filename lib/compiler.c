@@ -267,5 +267,3 @@ bool compile(const char* source,Chunk* chunk)
     endCompiler();
     return !parser.hadError;
 }
-
-// Dumping chunks 17.7
