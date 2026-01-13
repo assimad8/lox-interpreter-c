@@ -111,6 +111,34 @@ static void endCompiler()
 {
     emitReturn();
 }
+static void binary()
+{
+    // remember the operator
+    TokenType operatorType = parser.previous.type;
+
+    // compile the right operand
+    ParseRule* rule = getRule(operatorType);
+    parsePrecedence((Precedence)(rule->precedence+1));
+
+    // emit the operator instruction
+    switch(operatorType)
+    {
+        case TOKEN_PLUS:{
+            emitByte(OP_ADD);break;
+        }
+        case TOKEN_MINUS:{
+            emitByte(OP_SUBTRACT);break;
+        }
+        case TOKEN_STAR:{
+            emitByte(OP_MULTIPLY);break;
+        }
+        case TOKEN_SLASH:{
+            emitByte(OP_DIVIDE);break;
+        }
+        default:
+            return ;//Unreachable
+    }
+}
 static void parsePrecedence(Precedence precedence)
 {}
 static void expression()
@@ -155,4 +183,4 @@ bool compile(const char* source,Chunk* chunk)
     return !parser.hadError;
 }
 
-// parsing prefix expression 17.4
+// parsing infix expression 17.5
