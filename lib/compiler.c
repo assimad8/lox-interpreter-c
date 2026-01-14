@@ -185,18 +185,9 @@ static void literal()
 {
     switch(parser.previous.type)
     {
-        case TOKEN_FALSE: {
-            emitByte(OP_FALSE);
-            break;
-        }
-        case TOKEN_TRUE: {
-            emitByte(OP_TRUE);
-            break;
-        }
-        case TOKEN_NIL:{
-            emitByte(OP_NIL);
-            break;
-        }
+        case TOKEN_FALSE:emitByte(OP_FALSE);break;
+        case TOKEN_NIL:emitByte(OP_NIL);break;
+        case TOKEN_TRUE:emitByte(OP_TRUE);break;
         default:
             return ;//Unreachable
     }
@@ -238,7 +229,7 @@ ParseRule rules[] = {
     [TOKEN_SEMICOLON]     = {NULL,NULL,PREC_NONE},
     [TOKEN_SLASH]         = {NULL,binary, PREC_FACTOR},
     [TOKEN_STAR]          = {NULL,binary, PREC_FACTOR},
-    [TOKEN_BANG]          = {unary,NULL,PREC_NONE},
+    [TOKEN_BANG]          = {unary,NULL,PREC_UNARY},
     [TOKEN_BANG_EQUAL]    = {NULL,binary,PREC_EQUALITY},
     [TOKEN_EQUAL]         = {NULL,NULL,PREC_NONE},
     [TOKEN_EQUAL_EQUAL]   = {NULL,binary,PREC_EQUALITY},

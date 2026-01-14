@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "debug.h"
 #include "value.h"
+#include "scanner.h"
 
 /* Private helpers */
 static int simpleInstruction(const char* name, int offset);
