@@ -267,3 +267,5 @@ bool compile(const char* source,Chunk* chunk)
     endCompiler();
     return !parser.hadError;
 }
+
+// tagged unions
