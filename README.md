@@ -31,8 +31,8 @@ The implementation follows the architecture and progression of
 ## Project Structure
 
 clox/
-├── include/     # Public headers
-
+     # Public headers
+├── include
     ├── common.h     → shared macros, config, platform helpers
     |
     ├── chunk.h      → bytecode chunk interface
@@ -52,21 +52,34 @@ clox/
     ├── value.h      → Value representation
     |
     └── vm.h         → virtual machine API
-├── src/         # Implementation files
-    ├── main.c       → program entry + REPL + file runner
+    |
+├── src/         # Implementation file
+    |
     ├── chunk.c      → bytecode storage
+    |
     ├── compiler.c  → parser + compiler
+    |
     ├── debug.c     → bytecode disassembly
+    |
     ├── memory.c    → allocator + GC (later)
+    |
     ├── object.c    → strings, functions, closures, classes
+    |
     ├── scanner.c   → lexical analysis
+    |
     ├── table.c     → hash tables
+    |
     ├── value.c     → Value utilities
+    |
     └── vm.c        → interpreter loop + opcode execution
-├── main.c # Program entry point
+|
+├── main.c # → program entry + REPL + file runner
+|
 ├── build/ # Object files (generated)
+|
 ├── bin/ # Final executable (generated)
-│   └── clox
+    |
+    └── clox
 └── Makefile # Build system
 
 - `scanner`   — Lexical analysis
@@ -225,5 +238,6 @@ Focused on compilers, interpreters, and low-level programming
 
 This project is for educational purposes.  
 Original language and design by Robert Nystrom.
+
 
 
