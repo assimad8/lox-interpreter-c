@@ -110,12 +110,12 @@ Includes debug symbols and no optimization:
 
 ```bash
 make
-
+```
 ###🔹 Build the interpreter:
 
 ```sh
 make debug
-
+```
 ---
 
 ## 6. Run Instructions
@@ -125,19 +125,19 @@ Very important.
 ```md
 ## Run
 make run
-
+```
 Run a Lox script:
 
 ```sh
 ./clox file.lox
-
+```
 
 ---
 ## Release Build (optimized)
 
 ```sh
 make release
-
+```
 ---
 ## Start the interactive REPL
 
@@ -145,29 +145,30 @@ Executable will be located in:
 
 ```sh
 ./bin/clox
-
+```
 ## Clean build artifacts
 ```sh
 make clean
+```
 ## Full Rebuild
 ```sh
 make rebuild
-
+```
 ## 7. Example Program
 
 Shows the language works.
 
 ```md
 ## Example
-
+```
 ```lox
 var message = "Hello, world!";
 print message;
-
+```
 ## Output:
 ```sh
 Hello, world!
-
+```
 ## Purpose
 
 This project focuses on mastering:
@@ -238,6 +239,7 @@ Focused on compilers, interpreters, and low-level programming
 
 This project is for educational purposes.  
 Original language and design by Robert Nystrom.
+
 
 
 
