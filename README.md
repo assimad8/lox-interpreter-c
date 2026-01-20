@@ -187,29 +187,20 @@ This project focuses on mastering:
 
 Implemented up to:
 
-    Hash tables
-
-    String interning
-
-    Global variables
-
-    Statements
-
-    Declarations
-
-    Reading variables
+- Hash tables
+- String interning
+- Global variables
+- Statements
+- Declarations
+- Reading variables
 
 Planned next steps:
 
-    Variable assignment
-
-    Local variables
-
-    Scope resolution
-
-    Control flow
-
-    Functions and closures
+- Variable assignment
+- Local variables
+- Scope resolution
+- Control flow
+- Functions and closures
 
 ## Roadmap
 
