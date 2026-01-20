@@ -32,15 +32,25 @@ The implementation follows the architecture and progression of
 
 clox/
 ├── include/     # Public headers
+
     ├── common.h     → shared macros, config, platform helpers
+    |
     ├── chunk.h      → bytecode chunk interface
+    |
     ├── compiler.h   → parser + bytecode emitter
+    |
     ├── debug.h      → disassembler
+    |
     ├── memory.h     → allocation + GC
+    |
     ├── object.h     → heap object definitions
+    |
     ├── scanner.h    → tokenizer
+    |
     ├── table.h      → hash tables
+    |
     ├── value.h      → Value representation
+    |
     └── vm.h         → virtual machine API
 ├── src/         # Implementation files
     ├── main.c       → program entry + REPL + file runner
@@ -215,4 +225,5 @@ Focused on compilers, interpreters, and low-level programming
 
 This project is for educational purposes.  
 Original language and design by Robert Nystrom.
+
 
