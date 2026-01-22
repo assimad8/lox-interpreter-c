@@ -410,7 +410,6 @@ static void parsePrecedence(Precedence precedence)
 }
 static uint8_t identifierConstant(Token* name)
 {
-    printf("variable value: %.*s\n", name->length, name->start);
     return makeConstant(OBJ_VAL(copyString(name->start,
         name->length)));
 }

@@ -1,0 +1,3 @@
+var firstName = "emad";
+var lasName = "lakhbizi";
+print firstName + " " + lasName;
